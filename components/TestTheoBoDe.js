@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import De1 from './BoDe'
-import {View, FlatList,StyleSheet,AppRegistry,Text,Image, Platform, Dimensions, ScrollView, TextInput, CheckBox, Alert} from 'react-native'
+import {View, FlatList,StyleSheet,AppRegistry,Text,Image, Platform,
+    Modal,TouchableHighlight, Dimensions, ScrollView, TextInput, CheckBox, Alert, Button} from 'react-native'
 var screen =Dimensions.get('window');
 
 
 class HorizontalFlatListItem extends Component {
     constructor(props){
         super(props);
+        
         this.state={
             check1:false,
             check2:false,
@@ -39,7 +41,7 @@ class HorizontalFlatListItem extends Component {
                      check1 : !this.state.check1,
                      keyChange:key
                  });
-                 console.log(this.state.check1)
+                //  console.log(this.state.check1)
                  break;
             }
             case 1:{
@@ -62,11 +64,8 @@ class HorizontalFlatListItem extends Component {
       
     }
     render(){
+        if(this.state.check1 !=0 || this.state.check2 != 0 || this.state.check3 != 0)
         this.props.parentFlatList.getAnswerUser(this.state.keyChange,this.state.check1,this.state.check2,this.state.check3)
-        console.log("check con:" +this.state.check1,this.state.check2,this.state.check3);
-        // console.log("inde"+this.props.index)
-
-        // console.log(this.checkValueIndex(1))
        if(this.props.item.image ==""){
             return (
                 <View  style={styles.horizontalParent}>
@@ -88,7 +87,7 @@ class HorizontalFlatListItem extends Component {
 
                 {/* // <Image source={require('../images/de1-20.jpg')} style={{height:100,width:100}}></Image> */}
                     <View style={{margin:5}}>
-                    {this.props.item.result.map((val,index) => <View style={{flexDirection:'row'}}><CheckBox ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
+                    {this.props.item.result.map((val,index) => <View style={{flexDirection:'row'}}><CheckBox value={this.checkValueIndex(index)}  onChange = {() => this.checkOnChange(this.props.index,index) } ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
                     </View>
                 </View>
             )
@@ -99,14 +98,17 @@ class HorizontalFlatListItem extends Component {
 }
 
 export default class componentName extends Component {
-     answerUser = new Map();
+    answerUser = new Map();
     constructor(props){
         super(props)
-        // this.state={
-        //     answerUser:[]
-        // }
-        
-
+        this.state={
+            modalVisible :false,
+        };
+       
+       
+    }
+    setModalVisible(visible){
+        this.setState({modalVisible:visible})
     }
     changeBoolenToInt = (val) =>{
          if(val ==true) return 1;
@@ -126,16 +128,73 @@ export default class componentName extends Component {
             //     if(key == index) 
             // });
             // console.log("m:"+this.answerUser.size)
-            console.log("check cha:"+check1+check2+check3)
-            this.answerUser.forEach(function(value, key, map) {
-                console.log(`${key} has ${value}`)
-            });
+            // console.log("check cha:"+check1+check2+check3)
+            // this.answerUser.forEach(function(value, key, map) {
+            //     console.log(`${key} has ${value}`)
+            // });
           
     }
-   
+   showButtonSubmit = () =>{
+       Alert.alert(
+           "Submit",
+           "Ban muon ket thuc va nop bai ?",
+           [
+               {
+                   text:"Cancel", onPress: () => {
+                        console.log("cancel");
+                   }
+                },
+                {
+                    text:"OK",onPress : () =>{
+                        this.setModalVisible(true);
+                    }
+                }
+
+           ]
+
+       )
+   }
+   compareTwoArray =(arr1,arr2) =>{
+       console.log("kiem tra" +arr1.length+ arr2.length)
+        if(arr1.length != arr2.length) return false;
+        else{
+            for(let i=0;i<arr1.length;i++){
+                console.log("kiem tra"+arr1[i]+"="+arr2[i])
+                if(arr1[i] != arr2[i]) return false
+            }
+        }
+        return true;
+   }
+   compareResult =(result) =>{
+       let temp= [];
+       let countTrue=0;
+    for(var [key,value] of result){
+        if(this.compareTwoArray(value,De1[key].resultTrue)){
+            console.log("trueresult")
+            temp.push(1);
+            countTrue=countTrue+1;
+        } 
+        else{
+            console.log("falseResult");
+            temp.push(0);
+        }
+          
+    }
+    console.log("ket thuc")
+     return countTrue;
+   }
   render() {
     return (
         <View style={styles.parentView}>
+            <View style={styles.childTitle}>
+                <Button title="sdf" style={{flex:1}}></Button>
+                <Text style={{flex:3}}>
+
+                </Text>
+                <View style={{flex:1}}>
+                    <Button onPress={() =>this.showButtonSubmit()}  style={{flex:0.2,justifyContent:'flex-end'}} title="Nop Bai" ></Button>
+                </View>
+            </View>
             <View style ={styles.childView}>
                 <FlatList style={styles.flatList}
                 data={De1}
@@ -149,7 +208,38 @@ export default class componentName extends Component {
                 >
                 </FlatList>
             </View>
+            <View >
+                <Modal
+                    style={{ 
+                        justifyContent:'center',
+                        borderRadius:3,
+                        width:screen.width-80,
+                        height:280
+                    }}
+                    animationType="slide"
+                    transparent={false}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {
+                        Alert.alert('Modal has been closed.');
+                    }}>
+                    <View style={{marginTop: 22,backgroundColor:'blue'}}>
+                        <View>
+                            <Text>{this.compareResult(this.answerUser)}</Text>
+
+                            <TouchableHighlight
+                                onPress={() => {
+                                this.setModalVisible(false);
+                                }}>
+                                <Text>Hide Modal</Text>
+                            </TouchableHighlight>
+                        </View>
+                    </View>
+            </Modal>
+            </View>
         </View>
+        // modal
+                    
+        
 
     );
   }
@@ -162,7 +252,7 @@ const styles = StyleSheet.create({
         marginTop:Platform ==='ios' ?34 : 0
     },
     childView :{
-        height:screen.height,
+        height:screen.height*9/10,
         width:screen.width
     },
     flatList :{
@@ -186,6 +276,13 @@ const styles = StyleSheet.create({
         color:'black',
         fontSize:20,
         fontWeight:'bold',
+    },
+    childTitle:{
+        flex:1,
+        backgroundColor :'#58D3F7',
+        flexDirection:'row',
+        // height:screen.height*1/10,
+        width:screen.width
     },
     imageIcon:{
         resizeMode:'contain',
