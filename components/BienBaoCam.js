@@ -5,7 +5,47 @@ import BienBao from './BoBienBaoCam.js'
 
 var screen =Dimensions.get('window');
 export default class componentName extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+  }
+  getAnyRowWarming =(len)=>{
+    let page = len/4;
+    let pageResidual =len % 4;
+    let arr=[];
+    if(pageResidual !=0) 
+      page++;
+    for(let i=0;i<page;i++){
+      arr.push(<View><View style={{display:'flex',flexDirection:'column',height:'100%',width:'100%'}}>{this.get4ColWarming(i)}</View></View>)
+    }
+    return arr;
+  }
+
+  get4ColWarming =(num)=>{
+    let arr=[];
+    for(let i=0;i<4;i++){
+      console.log("vao1")
+      arr.push( <View style={[styles.parentWarmingContent,{borderWidth:1,borderColor:'gray'}]}>
+                  <View style={{flex:3,borderColor:'gray',borderRightWidth:1}}>
+                    <Image style={styles.childWarmingImage} source={{uri:BienBao[num*4+i].image}}></Image>
+                  </View>
+                  <View style={{flex:7,backgroundColor:'white'}}>
+                      {/* <View style={{margin:5}}> */}
+                          <Text style={styles.childWarmingTxt}>{BienBao[num*4+i].name}</Text>
+                      {/* </View> */}
+                      <View style={{marginLeft:5}}>
+                          <Text >{BienBao[num*4+i].description}</Text>
+                      </View>
+                  </View>
+                </View>)
+    }
+    return arr;
+  }
+
   render() {
+    console.log(BienBao.length)
     return (
       <View style={styles.parentView}>
         <View style={styles.childTitle}>
@@ -18,11 +58,11 @@ export default class componentName extends Component {
             </View>
         <View style={[styles.childTitle,{backgroundColor:'white'}]}>
           <View style={styles.childTitle}>
-          <View style={[styles.textThiSatHach,{backgroundColor:'#C4C4C4'}]}>
-                    <Text style={[styles.textThiSatHach_txtChild,{fontSize:30,fontWeight:'bold'}]}>
-                        Biển Báo
-                    </Text>
-                </View>
+            <View style={[styles.textThiSatHach,{backgroundColor:'#C4C4C4'}]}>
+                <Text style={[styles.textThiSatHach_txtChild,{fontSize:30,fontWeight:'bold'}]}>
+                          Biển Báo
+                </Text>
+            </View>
           </View>
         </View>
      
@@ -31,176 +71,9 @@ export default class componentName extends Component {
                       horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     pagingEnabled={true}>
-      <View>
-        <View style={{display:'flex',flexDirection:'column',height:'100%',width:'100%'}}>
-          <View style={styles.parentWarmingContent}>
-            <View style={{flex:3}}>
-            <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-            </View>
-            <View style={{flex:7,backgroundColor:'white'}}>
-                {/* <View style={{margin:5}}> */}
-                    <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-                {/* </View> */}
-                <View style={{marginLeft:5}}>
-                    <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-                </View>
-            </View>
-          </View>
-          <View style={styles.parentWarmingContent}>
-          <View style={{flex:3}}>
-          <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-          </View>
-          <View style={{flex:7,backgroundColor:'white'}}>
-              {/* <View style={{margin:5}}> */}
-                  <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-              {/* </View> */}
-              <View style={{marginLeft:5}}>
-                  <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-              </View>
-          </View>
-        </View>
-          <View style={styles.parentWarmingContent}>
-          <View style={{flex:3}}>
-          <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-          </View>
-          <View style={{flex:7,backgroundColor:'white'}}>
-              {/* <View style={{margin:5}}> */}
-                  <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-              {/* </View> */}
-              <View style={{marginLeft:5}}>
-                  <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-              </View>
-          </View>
-        </View>
-          <View style={styles.parentWarmingContent}>
-            <View style={{flex:3}}>
-            <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-            </View>
-            <View style={{flex:7,backgroundColor:'white'}}>
-                {/* <View style={{margin:5}}> */}
-                    <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-                {/* </View> */}
-                <View style={{marginLeft:5}}>
-                    <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-                </View>
-            </View>
-          </View>
-        </View>
-      </View>
+        {this.getAnyRowWarming(BienBao.length)}
         {/* //them */}
-      <View>
-        <View style={{display:'flex',flexDirection:'column',height:'100%',width:'100%'}}>
-          <View style={styles.parentWarmingContent}>
-            <View style={{flex:3}}>
-            <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-            </View>
-            <View style={{flex:7,backgroundColor:'white'}}>
-                {/* <View style={{margin:5}}> */}
-                    <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-                {/* </View> */}
-                <View style={{marginLeft:5}}>
-                    <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-                </View>
-            </View>
-          </View>
-          <View style={styles.parentWarmingContent}>
-          <View style={{flex:3}}>
-          <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-          </View>
-          <View style={{flex:7,backgroundColor:'white'}}>
-              {/* <View style={{margin:5}}> */}
-                  <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-              {/* </View> */}
-              <View style={{marginLeft:5}}>
-                  <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-              </View>
-          </View>
-        </View>
-          <View style={styles.parentWarmingContent}>
-          <View style={{flex:3}}>
-          <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-          </View>
-          <View style={{flex:7,backgroundColor:'white'}}>
-              {/* <View style={{margin:5}}> */}
-                  <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-              {/* </View> */}
-              <View style={{marginLeft:5}}>
-                  <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-              </View>
-          </View>
-        </View>
-          <View style={styles.parentWarmingContent}>
-            <View style={{flex:3}}>
-            <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-            </View>
-            <View style={{flex:7,backgroundColor:'white'}}>
-                {/* <View style={{margin:5}}> */}
-                    <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-                {/* </View> */}
-                <View style={{marginLeft:5}}>
-                    <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-                </View>
-            </View>
-          </View>
-        </View>
-      </View>
-      {/* them */}
-      <View>
-        <View style={{display:'flex',flexDirection:'column',height:'100%',width:'100%'}}>
-          <View style={styles.parentWarmingContent}>
-            <View style={{flex:3}}>
-            <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-            </View>
-            <View style={{flex:7,backgroundColor:'white'}}>
-                {/* <View style={{margin:5}}> */}
-                    <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-                {/* </View> */}
-                <View style={{marginLeft:5}}>
-                    <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-                </View>
-            </View>
-          </View>
-          <View style={styles.parentWarmingContent}>
-          <View style={{flex:3}}>
-          <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-          </View>
-          <View style={{flex:7,backgroundColor:'white'}}>
-              {/* <View style={{margin:5}}> */}
-                  <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-              {/* </View> */}
-              <View style={{marginLeft:5}}>
-                  <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-              </View>
-          </View>
-        </View>
-          <View style={styles.parentWarmingContent}>
-          <View style={{flex:3}}>
-          <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-          </View>
-          <View style={{flex:7,backgroundColor:'white'}}>
-              {/* <View style={{margin:5}}> */}
-                  <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-              {/* </View> */}
-              <View style={{marginLeft:5}}>
-                  <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-              </View>
-          </View>
-        </View>
-          <View style={styles.parentWarmingContent}>
-            <View style={{flex:3}}>
-            <Image style={styles.childWarmingImage} source={{uri:'asset:/images/de4-18.jpg'}}></Image>
-            </View>
-            <View style={{flex:7,backgroundColor:'white'}}>
-                {/* <View style={{margin:5}}> */}
-                    <Text style={styles.childWarmingTxt}>asdgashdhasdahdhags</Text>
-                {/* </View> */}
-                <View style={{marginLeft:5}}>
-                    <Text >ashdgashdfadsfagsdfghfeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</Text>
-                </View>
-            </View>
-          </View>
-        </View>
-      </View>
+       
       
         </ScrollView>
       </View>
@@ -258,11 +131,6 @@ const styles = StyleSheet.create({
     fontWeight:'bold',
     color:'red'
    }
-
- 
-
-
-  
 
 });
 

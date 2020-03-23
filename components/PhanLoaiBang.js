@@ -12,6 +12,7 @@ export default class componentName extends Component {
             <Text style={styles.textThiSatHach_txtChild}>
                  Thi Sát Hạch GPLX
             </Text>
+            <Link to='/'><Text>Home</Text></Link>
           </View>
         </View>
       <View style={styles.footerView}>

@@ -503,4 +503,4 @@ var de1 = [
 
 ]
 
-module.exports = de1[0].de1;
+module.exports = de1;

@@ -23,7 +23,7 @@ export default class componentName extends Component {
               <Route exact path='/Meo' component={Meo} />
               <Route exact path='/XemDapAn' component={XemDapAn} />
               <Route exact path='/SaHinh' component={SaHinh} />
-              <Route exact path='/TestTheoBoDe' component={TestTheoBoDe} />
+              <Route exact path='/TestTheoBoDe/:id' component={TestTheoBoDe} />
 
           </Switch>
         </View>

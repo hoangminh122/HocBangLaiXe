@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-import De1 from './BoDe'
+import De from './BoDe'
 import {Link} from 'react-router-native'
 import {View, FlatList,StyleSheet,AppRegistry,Text,Image, Platform,
     Modal,TouchableHighlight, Dimensions, ScrollView, TextInput, CheckBox, Alert, Button} from 'react-native'
 var screen =Dimensions.get('window');
 
-// var De1=De[0];
+var De1=De[0].de1;
 class HorizontalFlatListItem extends Component {
     constructor(props){
         super(props);
-        
-       
     }
-    
-   
-    setBackground = (number)=>{
 
-        // console.log("demo"+number == 1)
+    setBackground = (number)=>{
         console.log("num"+number)
         console.log(number==1)
         if(number == 0) 
@@ -29,66 +24,62 @@ class HorizontalFlatListItem extends Component {
        if(this.props.item.image ==""){
             return (
                 <View>
-                <View style={[styles.childTitle,{backgroundColor:'white'}]}>
-                <Text style={{flex:1}}>
-                        Cau {this.props.index+1}
-                </Text>
-                <View style={{flexDirection:'row',flex:1}}>
-                    <Text  style={{justifyContent:'flex-end'}}>
-                        20:00
-                    </Text>
-                </View>
-               
-                <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                         0/30
-                </Text>
-            </View>
-                <View  style={styles.horizontalParent}>
-                <Text style={styles.itemTitle}>{this.props.item.title}</Text>
-                    <View key={this.props.index} style={{margin:5}}>
-                    {/* <View style={this.setBackground(1)}><CheckBox  ></CheckBox><Text style={{marginTop:5}}>sdasdasd</Text></View> */}
-                    {/* <View style={this.setBackground(1)}><CheckBox  ></CheckBox><Text style={{marginTop:5}}>âsfasfasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</Text></View> */}
-                    {/* <View style={this.setBackground(0)}><CheckBox  ></CheckBox><Text style={{marginTop:5}}>âssssssssssssssssssssssssssssssssssssssssssssssssssssss</Text></View> */}
-                    {this.props.item.result.map((val,index) => <View style={this.setBackground(this.props.item.resultTrue[index])}><CheckBox   ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
+                    <View style={[styles.childTitle,{backgroundColor:'white'}]}>
+                        <Text style={{flex:1}}>
+                                Cau {this.props.index+1}
+                        </Text>
+                        <View style={{flexDirection:'row',flex:1}}>
+                            <Text  style={{justifyContent:'flex-end'}}>
+                                20:00
+                            </Text>
+                        </View>
+                
+                        <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
+                                0/30
+                        </Text>
+                    </View>
+                    <View  style={styles.horizontalParent}>
+                        <Text style={styles.itemTitle}>{this.props.item.title}
+                        </Text>
+                        <View key={this.props.index} style={{margin:5}}>
+                        {/* <View style={this.setBackground(1)}><CheckBox  ></CheckBox><Text style={{marginTop:5}}>sdasdasd</Text></View> */}
+                        {/* <View style={this.setBackground(1)}><CheckBox  ></CheckBox><Text style={{marginTop:5}}>âsfasfasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</Text></View> */}
+                        {/* <View style={this.setBackground(0)}><CheckBox  ></CheckBox><Text style={{marginTop:5}}>âssssssssssssssssssssssssssssssssssssssssssssssssssssss</Text></View> */}
+                        {this.props.item.result.map((val,index) => <View style={this.setBackground(this.props.item.resultTrue[index])}><CheckBox   ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
+                        </View>
                     </View>
                 </View>
-                </View>
             )
-            // value={(this.props.item.resultTrue[index]==1)? true:false
-            // style={this.setBackground(this.props.item.resultTrue[index])}
         }else{
             
             return (
                 <View>
-                <View style={[styles.childTitle,{backgroundColor:'white'}]}>
-                <Text style={{flex:1}}>
-                        Cau {this.props.index+1}
-                </Text>
-                <View style={{flexDirection:'row',flex:1}}>
-                    <Text  style={{justifyContent:'flex-end'}}>
-                        20:00
-                    </Text>
-                </View>
-               
-                <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                         0/30
-                </Text>
-            </View>
-                <View key={this.props.index} style={styles.horizontalParent}>
-                <Text style={styles.itemTitle}>{this.props.item.title}</Text>
-                 <View style={{margin:2,marginTop:10}}>
-                     <Image source={{uri:this.props.image}} style={styles.imageIcon}></Image>
-                 </View>
+                    <View style={[styles.childTitle,{backgroundColor:'white'}]}>
+                        <Text style={{flex:1}}>
+                                Cau {this.props.index+1}
+                        </Text>
+                        <View style={{flexDirection:'row',flex:1}}>
+                            <Text  style={{justifyContent:'flex-end'}}>
+                                20:00
+                            </Text>
+                        </View>
+                        <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
+                                0/30
+                        </Text>
+                    </View>
+                    <View key={this.props.index} style={styles.horizontalParent}>
+                        <Text style={styles.itemTitle}>{this.props.item.title}
+                        </Text>
+                        <View style={{margin:2,marginTop:10}}>
+                            <Image source={{uri:this.props.image}} style={styles.imageIcon}></Image>
+                        </View>
 
-                {/* // <Image source={require('../images/de1-20.jpg')} style={{height:100,width:100}}></Image> */}
-                    <View style={{margin:5}}>
-                    {this.props.item.result.map((val,index) => <View style={this.setBackground(this.props.item.resultTrue[index])} ><CheckBox ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
+                        <View style={{margin:5}}>
+                            {this.props.item.result.map((val,index) => <View style={this.setBackground(this.props.item.resultTrue[index])} ><CheckBox ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
+                        </View>
                     </View>
                 </View>
-                </View>
             )
-            
-
         }
     }
 }
@@ -99,8 +90,6 @@ export default class componentName extends Component {
         this.state={
             num:1
         };
-       
-       
     }
     
    numberPage =(number) =>{
@@ -116,6 +105,7 @@ export default class componentName extends Component {
                     <Text style={styles.textThiSatHach_txtChild}>
                         Thi Sát Hạch GPLX
                     </Text>
+                    <Link to='/'><Text>Home</Text></Link>
                 </View>
             </View>
           
@@ -127,7 +117,7 @@ export default class componentName extends Component {
                         return (
                             
                         <HorizontalFlatListItem  image={item.image} index={index} item={item} parentFlatList={this}>
-                       {console.log(index)}
+                             {console.log(index)}
                         </HorizontalFlatListItem>
                         );
                 }}
@@ -141,9 +131,6 @@ export default class componentName extends Component {
                 </View>
             </View>
         </View>
-        // modal
-                    
-        
 
     );
   }

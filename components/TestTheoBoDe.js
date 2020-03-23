@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import De1 from './BoDe'
+import De from './BoDe'
 import {Link} from 'react-router-native'
 import {View, FlatList,StyleSheet,AppRegistry,Text,Image, Platform,
     Modal,TouchableHighlight, Dimensions, ScrollView, TextInput, CheckBox, Alert, Button} from 'react-native'
 var screen =Dimensions.get('window');
-
 
 class HorizontalFlatListItem extends Component {
     constructor(props){
@@ -70,23 +69,23 @@ class HorizontalFlatListItem extends Component {
        if(this.props.item.image ==""){
             return (
                 <View  style={styles.horizontalParent}>
-                <View style={[styles.childTitle,{backgroundColor:'white'}]}>
-                <Text style={{flex:1}}>
-                     Cau {this.props.index+1}
-                </Text>
-                <View style={{flexDirection:'row',flex:1}}>
-                    <Text  style={{justifyContent:'flex-end'}}>
-                        20:00
-                    </Text>
-                </View>
-               
-                <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                         0/30
-                </Text>
-            </View>
+                    <View style={[styles.childTitle,{backgroundColor:'white'}]}>
+                        <Text style={{flex:1}}>
+                            Cau {this.props.index+1}
+                        </Text>
+                        <View style={{flexDirection:'row',flex:1}}>
+                            <Text  style={{justifyContent:'flex-end'}}>
+                                20:00
+                            </Text>
+                        </View>
+                    
+                        <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
+                                0/30
+                        </Text>
+                    </View>
                 <Text style={styles.itemTitle}>{this.props.item.title}</Text>
                     <View key={this.props.index} style={{margin:5}}>
-                    {this.props.item.result.map((val,index) => <View style={{flexDirection:'row'}}><CheckBox value={this.checkValueIndex(index)}  onChange = {() => this.checkOnChange(this.props.index,index) } ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
+                        {this.props.item.result.map((val,index) => <View style={{flexDirection:'row'}}><CheckBox value={this.checkValueIndex(index)}  onChange = {() => this.checkOnChange(this.props.index,index) } ></CheckBox><Text style={{marginTop:5}}>{val}</Text></View>)} 
                     </View>
                 </View>
             )
@@ -95,24 +94,24 @@ class HorizontalFlatListItem extends Component {
             return (
                
                 <View key={this.props.index} style={styles.horizontalParent}>
-                 <View style={[styles.childTitle,{backgroundColor:'white'}]}>
-                <Text style={{flex:1}}>
-                    Cau {this.props.index+1}
-                </Text>
-                <View style={{flexDirection:'row',flex:1}}>
-                    <Text  style={{justifyContent:'flex-end'}}>
-                        20:00
-                    </Text>
-                </View>
-               
-                <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                         0/30
-                </Text>
-            </View>
-                <Text style={styles.itemTitle}>{this.props.item.title}</Text>
-                 <View style={{margin:2,marginTop:10}}>
-                     <Image source={{uri:this.props.image}} style={styles.imageIcon}></Image>
-                 </View>
+                    <View style={[styles.childTitle,{backgroundColor:'white'}]}>
+                        <Text style={{flex:1}}>
+                            Cau {this.props.index+1}
+                        </Text>
+                        <View style={{flexDirection:'row',flex:1}}>
+                            <Text  style={{justifyContent:'flex-end'}}>
+                                20:00
+                            </Text>
+                        </View>
+                    
+                        <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
+                                0/30
+                        </Text>
+                    </View>
+                    <Text style={styles.itemTitle}>{this.props.item.title}</Text>
+                    <View style={{margin:2,marginTop:10}}>
+                        <Image source={{uri:this.props.image}} style={styles.imageIcon}></Image>
+                    </View>
 
                 {/* // <Image source={require('../images/de1-20.jpg')} style={{height:100,width:100}}></Image> */}
                     <View style={{margin:5}}>
@@ -120,11 +119,10 @@ class HorizontalFlatListItem extends Component {
                     </View>
                 </View>
             )
-            
-
         }
     }
 }
+var De1;
 
 export default class componentName extends Component {
     answerUser = new Map();
@@ -133,34 +131,33 @@ export default class componentName extends Component {
         this.state={
             modalVisible :false,
         };
-       
-       
     }
+
+    setDeSetup =(num) =>{
+        switch(num){
+            case 1: return De[0].de1;
+            case 2: return De[1].de2;
+            case 3: return De[2].de3;
+        }
+    }
+
     setModalVisible(visible){
         this.setState({modalVisible:visible})
     }
+
     changeBoolenToInt = (val) =>{
          if(val ==true) return 1;
          else 
             return 0;
          return 0;
     }
+
     getAnswerUser =(key,check1,check2,check3) =>{
             let arr=[];
             arr.push(this.changeBoolenToInt(check1));
             arr.push(this.changeBoolenToInt(check2));
             arr.push(this.changeBoolenToInt(check3));
-            // this.answerUser.push({key:})
             this.answerUser.set(key,arr);
-            //tim vi tri 
-            // this.answerUser.map((value,index) =>{
-            //     if(key == index) 
-            // });
-            // console.log("m:"+this.answerUser.size)
-            // console.log("check cha:"+check1+check2+check3)
-            // this.answerUser.forEach(function(value, key, map) {
-            //     console.log(`${key} has ${value}`)
-            // });
           
     }
    showButtonSubmit = () =>{
@@ -180,7 +177,6 @@ export default class componentName extends Component {
                 }
 
            ]
-
        )
    }
    compareTwoArray =(arr1,arr2) =>{
@@ -209,10 +205,11 @@ export default class componentName extends Component {
         }
           
     }
-    console.log("ket thuc")
      return countTrue;
    }
   render() {
+      console.log(typeof this.props.match.params.id)
+        De1=this.setDeSetup(parseInt(this.props.match.params.id))
     return (
         <View style={styles.parentView}>
             <View style={styles.childTitle}>
@@ -220,6 +217,7 @@ export default class componentName extends Component {
                     <Text style={styles.textThiSatHach_txtChild}>
                         Thi Sát Hạch GPLX
                     </Text>
+                    <Link to='/'><Text>Home</Text></Link>
                 </View>
             </View>
             

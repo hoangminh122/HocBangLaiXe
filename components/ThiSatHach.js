@@ -30,7 +30,7 @@ export default class componentName extends Component {
   getForThreeButon =(col,count)=>{
      var arr =[];
     for(let i=1;i<=col;i++){
-         arr.push(<Link  to='/TestTheoBoDe' style={[styles.txtButton,{backgroundColor:'gray'}]}>
+         arr.push(<Link  to={`/TestTheoBoDe/${i+count*3}`} style={[styles.txtButton,{backgroundColor:'gray'}]}>
             <View style={styles.viewChildButton}>
               <Text style={styles.txtChildButton}>
                     De {i+count*3}

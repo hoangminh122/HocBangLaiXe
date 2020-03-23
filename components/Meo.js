@@ -73,14 +73,9 @@ export default class componentName extends Component {
         {/* //them */}
       <View>
         <View style={{display:'flex',flexDirection:'column',height:'100%',width:'100%'}}>
-          
-        
           <View style={styles.parentWarmingContent}>
-         
           <View style={{flex:7,backgroundColor:'white'}}>
-              {/* <View style={{margin:5}}> */}
                   <Text style={styles.childWarmingTxt}>Câu hỏi về hiệu lệnh của CSGT:</Text>
-              {/* </View> */}
               <View style={{marginLeft:5}}>
                   <Text >Luôn chọn:</Text>
                   <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Giơ 1 tay: đáp án 2</Text>
@@ -91,9 +86,7 @@ export default class componentName extends Component {
           <View style={styles.parentWarmingContent}>
            
             <View style={{flex:7,backgroundColor:'white'}}>
-                {/* <View style={{margin:5}}> */}
                     <Text style={styles.childWarmingTxt}>Từ khoá cần nắm luôn là câu đúng 100%:</Text>
-                {/* </View> */}
                 <View style={{marginLeft:5}}>
                     <Text >Thấy từ khóa trong đáp án thì chọn luôn đáp án đó:</Text>
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+"không được…"</Text>
