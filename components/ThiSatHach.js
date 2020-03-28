@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight,Platform,View,Text,StyleSheet,Dimensions, ScrollView, TextInput} from 'react-native';
+import { TouchableHighlight,Platform,View,Text,StyleSheet,Image,Dimensions, ScrollView, TextInput} from 'react-native';
 import {Bode} from './BoDe'
 import {Link} from 'react-router-native'
 
@@ -18,15 +18,7 @@ export default class componentName extends Component {
     this.setState({number:this.props.match.params.number});
       
   }
-  // getDataFromNumberDoDe = (number)=>{
-  //   var result = `<View style={styles.viewParentButton}>`
-  //   let row = parseInt(number/3);
-  //   let col = number % 3;
-     
-  //   for(let iCol = 0; iClo < col ;iRow++){
-
-  //   }
-  // }
+ 
   getForThreeButon =(col,count)=>{
      var arr =[];
     for(let i=1;i<=col;i++){
@@ -72,6 +64,11 @@ export default class componentName extends Component {
             </Text>
             <Link to='/'><Text>Home</Text></Link>
           </View>
+          <View style={{flex:1,borderRadius:45,height:'50%',flexDirection:'column',backgroundColor:'#CCFFFF',marginRight:5,marginTop:15,borderWidth:1,justifyContent:'flex-end',}}>
+            <View style={{}} >
+              <Link to='/' ><Image style={{resizeMode:'contain',width:'100%',height:'80%',}} source={require('../image/home.png')}></Image></Link>
+            </View>
+          </View>
         </View>
       <View style={styles.footerView}>
       </View>
@@ -116,7 +113,7 @@ const styles = StyleSheet.create({
       marginTop:Platform ==='ios' ?34 : 0
   },
   childTitle:{
-    alignItems:'center',
+    // alignItems:'center',
     borderTopWidth:0.5,
     borderTopColor:'gray',
     // flex:1,
@@ -128,8 +125,8 @@ const styles = StyleSheet.create({
   },
   textThiSatHach:{
 
-    flex:1,
-    flexDirection:'row',
+    flex:16,
+    // flexDirection:'row',
     justifyContent:'center',
     alignItems:'center'
     

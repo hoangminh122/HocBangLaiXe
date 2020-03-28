@@ -13,8 +13,13 @@ export default class componentName extends Component {
                     <Text style={styles.textThiSatHach_txtChild}>
                         Thi Sát Hạch GPLX
                     </Text>
-                    <Link to='/'><Text>Home</Text></Link>
                 </View>
+                <View style={{flex:1,borderRadius:45,height:'50%',flexDirection:'column',backgroundColor:'#CCFFFF',marginRight:5,marginTop:15,borderWidth:1,justifyContent:'flex-end',}}>
+                  <View style={{}} >
+                    <Link to='/' ><Image style={{resizeMode:'contain',width:'100%',height:'80%',}} source={require('../image/home.png')}></Image></Link>
+                  </View>
+                </View>
+
             </View>
         <View style={[styles.childTitle,{backgroundColor:'white'}]}>
           <View style={styles.childTitle}>
@@ -86,9 +91,16 @@ const styles = StyleSheet.create({
         marginTop:Platform ==='ios' ?34 : 0
     },
     childTitle:{
-      flex:1,
-        // height:screen.height*1/10,
-        width:screen.width
+      // alignItems:'center',
+      borderTopWidth:0.5,
+      borderTopColor:'gray',
+      // flex:1,
+      backgroundColor :'#58D3F7',
+      flexDirection:'row',
+      display:'flex',
+      height:screen.height*1/10,
+      width:screen.width,
+      
     },
     childView :{
       margin:1,
@@ -99,8 +111,8 @@ const styles = StyleSheet.create({
     },
     textThiSatHach:{
 
-      flex:1,
-      flexDirection:'row',
+      flex:16,
+      // flexDirection:'row',
       justifyContent:'center',
       alignItems:'center'
       

@@ -14,7 +14,9 @@ class HorizontalFlatListItem extends Component {
             check2:false,
             check3:false,
             keyChange:0
+            // countChecked:0
         }
+        this.isTrueCountChecked=this.isTrueCountChecked.bind(this)
     }
     //kiem tra check1,check2,... ddungs khong
     checkValueIndex =(index) =>{
@@ -34,12 +36,17 @@ class HorizontalFlatListItem extends Component {
        }
          }
     }
+    isTrueCountChecked =()=>{
+        if(this.state.check1 ==true || this.state.check2 ==true || this.state.check3 ==true) return true
+        else return false;
+    }
     checkOnChange =(key,index) =>{
         switch(index){
             case 0:{
                 this.setState({
                      check1 : !this.state.check1,
                      keyChange:key
+                    //  countChecked:(this.isTrueCountChecked)? this.state.countChecked+1:this.state.countChecked
                  });
                 //  console.log(this.state.check1)
                  break;
@@ -48,6 +55,7 @@ class HorizontalFlatListItem extends Component {
                 this.setState({
                     check2 : !this.state.check2,
                     keyChange:key
+                    // countChecked:(this.isTrueCountChecked)? this.state.countChecked+1:this.state.countChecked
                 });
                break;
           }
@@ -55,6 +63,7 @@ class HorizontalFlatListItem extends Component {
                 this.setState({
                     check3 : !this.state.check3,
                     keyChange:key
+                    // countChecked:(this.isTrueCountChecked)? this.state.countChecked+1:this.state.countChecked
                 });
                 break;
           }
@@ -80,7 +89,7 @@ class HorizontalFlatListItem extends Component {
                         </View>
                     
                         <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                                0/30
+                                {this.props.parentFlatList.answerUser.size}/30
                         </Text>
                     </View>
                 <Text style={styles.itemTitle}>{this.props.item.title}</Text>
@@ -105,7 +114,7 @@ class HorizontalFlatListItem extends Component {
                         </View>
                     
                         <Text style={{flexDirection:'row',justifyContent:'flex-end'}}>
-                                0/30
+                            {this.props.parentFlatList.answerUser.size}/30
                         </Text>
                     </View>
                     <Text style={styles.itemTitle}>{this.props.item.title}</Text>
@@ -126,6 +135,7 @@ var De1;
 
 export default class componentName extends Component {
     answerUser = new Map();
+    answerArr = [];
     constructor(props){
         super(props)
         this.state={
@@ -157,7 +167,10 @@ export default class componentName extends Component {
             arr.push(this.changeBoolenToInt(check1));
             arr.push(this.changeBoolenToInt(check2));
             arr.push(this.changeBoolenToInt(check3));
+            // console.log("key:"+key);
+            // console.log("key:"+key);
             this.answerUser.set(key,arr);
+            // console.log("oks:"+this.answerUser.get(1));
           
     }
    showButtonSubmit = () =>{
@@ -191,17 +204,17 @@ export default class componentName extends Component {
         return true;
    }
    compareResult =(result) =>{
-       let temp= [];
+    //    let temp= [];
        let countTrue=0;
     for(var [key,value] of result){
         if(this.compareTwoArray(value,De1[key].resultTrue)){
             console.log("trueresult")
-            temp.push(1);
+            this.answerArr.push(1);
             countTrue=countTrue+1;
         } 
         else{
             console.log("falseResult");
-            temp.push(0);
+            this.answerArr.push(0);
         }
           
     }
@@ -217,7 +230,11 @@ export default class componentName extends Component {
                     <Text style={styles.textThiSatHach_txtChild}>
                         Thi Sát Hạch GPLX
                     </Text>
-                    <Link to='/'><Text>Home</Text></Link>
+                </View>
+                <View style={{flex:1,borderRadius:45,height:'50%',flexDirection:'column',backgroundColor:'#CCFFFF',marginRight:5,marginTop:15,borderWidth:1,justifyContent:'flex-end',}}>
+                    <View style={{}} >
+                        <Link to='/' ><Image style={{resizeMode:'contain',width:'100%',height:'80%',}} source={require('../image/home.png')}></Image></Link>
+                    </View>
                 </View>
             </View>
             
@@ -248,22 +265,33 @@ export default class componentName extends Component {
                     onRequestClose={() => {
                         Alert.alert('Modal has been closed.');
                     }}>
-                    <View style={{marginTop: 22,backgroundColor:'blue'}}>
-                        <View>
-                            <View>
-                                <Text>Số Câu Trả Lời Đúng: <Text>{this.compareResult(this.answerUser)}/20</Text></Text>
+                    <View>
+                        <View style={{display:'flex',height:screen.height,width:screen.width}}>
+                            <View style={{flex:1,flexDirection:'row',justifyContent:'center'}}>
+                                <Text style={{fontWeight:'bold'}} >Số Câu Trả Lời Đúng: <Text style={{margin:5,color:'red'}}>{this.compareResult(this.answerUser)}/20</Text></Text>
                                 
 
                             </View>
-                            <Link to='/XemDapAn'>
-                                <Text>Xem Đáp Án</Text>
-                            </Link>
+                            <View style={{flex:8}}></View>
+                            <View style={{flex:1,flexDirection:'row',width:screen.width}}>
+                                <View style={{flex:1,backgroundColor:'blue'}}>
+                                    <Link to={`/XemDapAn/${JSON.stringify(Array.from( this.answerUser))}`} style={{flex:1}}>
+                                        <View style={{flex:1,flexDirection:'row',justifyContent:'center'}} >
+                                            <Text style={{color:'white'}}>Xem Đáp Án</Text>
+                                        </View>
+                                    </Link>
+                                </View>
+                                <View style={{flex:1,backgroundColor:'gray'}}>
+                                    <Link to='/' style={{flex:1}}>
+                                        <View style={{flex:1,flexDirection:'row',justifyContent:'center'}}>
+                                          <Text style={{color:'white'}}>Go Home</Text>
+                                        </View>
+                                    </Link>
+                                </View>
+                            </View>
                             
-                        <Link to='/sdf' style={{height:100,backgroundColor:'green',width:screen.width}}>
-                           
-                                <Text>Hide Modal</Text>
-                            {/* </TouchableHighlight> */}
-                        </Link>
+                            
+                        
                         </View>
                     </View>
             </Modal>
@@ -316,7 +344,7 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
     },
     childTitle:{
-        alignItems:'center',
+        // alignItems:'center',
         borderTopWidth:0.5,
         borderTopColor:'gray',
         // flex:1,
@@ -332,8 +360,8 @@ const styles = StyleSheet.create({
     },
     textThiSatHach:{
 
-        flex:1,
-        flexDirection:'row',
+        flex:16,
+        // flexDirection:'row',
         justifyContent:'center',
         alignItems:'center'
         

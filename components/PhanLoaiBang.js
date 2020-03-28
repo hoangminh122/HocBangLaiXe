@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableHighlight,Platform,View,Text,StyleSheet,Dimensions, Button} from 'react-native';
+import { TouchableHighlight,Platform,View,Text,StyleSheet,Dimensions,Image, Button} from 'react-native';
 import {Link} from 'react-router-native'
 
 var screen =Dimensions.get('window');
@@ -12,7 +12,11 @@ export default class componentName extends Component {
             <Text style={styles.textThiSatHach_txtChild}>
                  Thi Sát Hạch GPLX
             </Text>
-            <Link to='/'><Text>Home</Text></Link>
+          </View>
+          <View style={{flex:1,borderRadius:45,height:'50%',flexDirection:'column',backgroundColor:'#CCFFFF',marginRight:5,marginTop:15,borderWidth:1,justifyContent:'flex-end',}}>
+            <View style={{}} >
+              <Link to='/' ><Image style={{resizeMode:'contain',width:'100%',height:'80%',}} source={require('../image/home.png')}></Image></Link>
+            </View>
           </View>
         </View>
       <View style={styles.footerView}>
@@ -91,22 +95,21 @@ const styles = StyleSheet.create({
       marginTop:Platform ==='ios' ?34 : 0
   },
   childTitle:{
-    alignItems:'center',
-    // color:'black'
+    // alignItems:'center',
     borderTopWidth:0.5,
     borderTopColor:'gray',
     // flex:1,
     backgroundColor :'#58D3F7',
     flexDirection:'row',
+    display:'flex',
     height:screen.height*1/10,
-    // height:200,
     width:screen.width,
     
   },
   textThiSatHach:{
 
-    flex:1,
-    flexDirection:'row',
+    flex:16,
+    // flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
     // backgroundColor:'red'

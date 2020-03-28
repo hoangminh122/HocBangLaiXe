@@ -16,6 +16,11 @@ export default class componentName extends Component {
                     <Link to='/'><Text>Home</Text></Link>
 
                 </View>
+                <View style={{flex:1,borderRadius:45,height:'50%',flexDirection:'column',backgroundColor:'#CCFFFF',marginRight:5,marginTop:15,borderWidth:1,justifyContent:'flex-end',}}>
+                  <View style={{}} >
+                    <Link to='/' ><Image style={{resizeMode:'contain',width:'100%',height:'80%',}} source={require('../image/home.png')}></Image></Link>
+                  </View>
+                </View>
             </View>
         <View style={[styles.childTitle,{backgroundColor:'white'}]}>
           <View style={styles.childTitle}>
@@ -37,7 +42,7 @@ export default class componentName extends Component {
         <View style={{display:'flex',flexDirection:'column',height:'100%',width:'100%'}}>
           <View style={styles.parentWarmingContent}>
             
-            <View style={{flex:7,backgroundColor:'white'}}>
+            <ScrollView style={{flex:7,backgroundColor:'white'}}>
                 {/* <View style={{margin:5}}> */}
                     <Text style={styles.childWarmingTxt}>Câu hỏi liên quan đến KHÁI NIỆM :</Text>
                 {/* </View> */}
@@ -49,13 +54,13 @@ export default class componentName extends Component {
                        <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+ Khái niệm “Người điều khiển giao thông” : Chọn đáp án số (2) + (3).</Text>
                        <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+ Khái niệm “ đường bộ”, “văn hóa giao thông” : Chọn đáp án số (1) + (2).</Text>
                 </View>
-            </View>
+            </ScrollView>
           </View>
         
         
           <View style={styles.parentWarmingContent}>
             
-            <View style={{flex:7,backgroundColor:'white'}}>
+            <ScrollView style={{flex:7,backgroundColor:'white'}}>
                 {/* <View style={{margin:5}}> */}
                     <Text style={styles.childWarmingTxt}>Những câu luôn nằm trong ĐÁP ÁN ĐÚNG:</Text>
                 {/* </View> */}
@@ -66,7 +71,7 @@ export default class componentName extends Component {
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+ UBND cấp tỉnh.</Text>
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+ Cơ quan, tổ chức, cá nhân.</Text>
                 </View>
-            </View>
+            </ScrollView>
           </View>
         </View>
       </View>
@@ -74,18 +79,18 @@ export default class componentName extends Component {
       <View>
         <View style={{display:'flex',flexDirection:'column',height:'100%',width:'100%'}}>
           <View style={styles.parentWarmingContent}>
-          <View style={{flex:7,backgroundColor:'white'}}>
+          <ScrollView style={{flex:7,backgroundColor:'white'}}>
                   <Text style={styles.childWarmingTxt}>Câu hỏi về hiệu lệnh của CSGT:</Text>
               <View style={{marginLeft:5}}>
                   <Text >Luôn chọn:</Text>
                   <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Giơ 1 tay: đáp án 2</Text>
                   <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Giơ 2 tay: đáp án 1</Text>
               </View>
-          </View>
+          </ScrollView>
         </View>
           <View style={styles.parentWarmingContent}>
            
-            <View style={{flex:7,backgroundColor:'white'}}>
+            <ScrollView style={{flex:7,backgroundColor:'white'}}>
                     <Text style={styles.childWarmingTxt}>Từ khoá cần nắm luôn là câu đúng 100%:</Text>
                 <View style={{marginLeft:5}}>
                     <Text >Thấy từ khóa trong đáp án thì chọn luôn đáp án đó:</Text>
@@ -95,7 +100,7 @@ export default class componentName extends Component {
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+"bị nghiêm cấm" </Text>
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+"chấp hành..."</Text>
                 </View>
-            </View>
+            </ScrollView>
           </View>
         </View>
       </View>
@@ -107,7 +112,7 @@ export default class componentName extends Component {
         
           <View style={styles.parentWarmingContent}>
          
-          <View style={{flex:7,backgroundColor:'white'}}>
+          <ScrollView style={{flex:7,backgroundColor:'white'}}>
               {/* <View style={{margin:5}}> */}
                   <Text style={styles.childWarmingTxt}>Quy định nhường đường tại nơi giao nhau:</Text>
               {/* </View> */}
@@ -119,11 +124,11 @@ export default class componentName extends Component {
                   <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Phương tiện giao thông đường sắt được ưu tiên hoàn toàn so với đường bộ</Text>
                   <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Đường ưu tiên là đường "được nhường"</Text>
               </View>
-          </View>
+          </ScrollView>
         </View>
           <View style={styles.parentWarmingContent}>
            
-            <View style={{flex:7,backgroundColor:'white'}}>
+            <ScrollView style={{flex:7,backgroundColor:'white'}}>
                 {/* <View style={{margin:5}}> */}
                     <Text style={styles.childWarmingTxt}>Phần sa hình::</Text>
                 {/* </View> */}
@@ -135,7 +140,7 @@ export default class componentName extends Component {
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Thứ 4: Xe bên phải không vướng đi trước.</Text>
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Thứ 5: Rẽ phải – Đi thẳng – Rẽ trái.</Text>
                 </View>
-            </View>
+            </ScrollView>
           </View>
         </View>
       </View>
@@ -147,7 +152,7 @@ export default class componentName extends Component {
         
           <View style={styles.parentWarmingContent}>
          
-          <View style={{flex:7,backgroundColor:'white'}}>
+          <ScrollView style={{flex:7,backgroundColor:'white'}}>
               {/* <View style={{margin:5}}> */}
                   <Text style={styles.childWarmingTxt}>Chú ý Xe con</Text>
               {/* </View> */}
@@ -156,11 +161,11 @@ export default class componentName extends Component {
                   <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+ Khi đề bài hỏi xe nào được quyền đi trước, xe nào chấp hành đúng luật giao thông =>>>Trong đáp án có xe con thì luôn chọn</Text>
                   <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+ Khi đề bài hỏi xe nào vi phạm quy tắc giao thông =>> Chọn đáp án không có xe con (Vì xe con luôn đúng).</Text>
               </View>
-          </View>
+          </ScrollView>
         </View>
           <View style={styles.parentWarmingContent}>
            
-            <View style={{flex:7,backgroundColor:'white'}}>
+            <ScrollView style={{flex:7,backgroundColor:'white'}}>
                 {/* <View style={{margin:5}}> */}
                     <Text style={styles.childWarmingTxt}>Phần sa hình:</Text>
                 {/* </View> */}
@@ -168,7 +173,7 @@ export default class componentName extends Component {
                     <Text >Có hình CSGT hoặc VÒNG TRÒN hoặc VÒNG XUYẾN: </Text>
                     <Text style={{fontWeight:'bold',fontStyle:'italic'}}>+Trong phần sa hình, câu nào xuất hiện hình CSGT hoặc VÒNG TRÒN, hoặc VÒNG XUYẾN thì chọn luôn đáp án số 3.</Text>
                 </View>
-            </View>
+            </ScrollView>
           </View>
         </View>
       </View>
@@ -196,9 +201,16 @@ const styles = StyleSheet.create({
         marginTop:Platform ==='ios' ?34 : 0
     },
     childTitle:{
-      flex:1,
-        // height:screen.height*1/10,
-        width:screen.width
+      // alignItems:'center',
+      borderTopWidth:0.5,
+      borderTopColor:'gray',
+      // flex:1,
+      backgroundColor :'#58D3F7',
+      flexDirection:'row',
+      display:'flex',
+      height:screen.height*1/10,
+      width:screen.width,
+      
     },
     childView :{
       margin:1,
@@ -209,8 +221,8 @@ const styles = StyleSheet.create({
     },
     textThiSatHach:{
 
-      flex:1,
-      flexDirection:'row',
+      flex:16,
+      // flexDirection:'row',
       justifyContent:'center',
       alignItems:'center'
       

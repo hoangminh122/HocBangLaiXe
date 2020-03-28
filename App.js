@@ -12,6 +12,7 @@ import TestTheoBoDe from './components/TestTheoBoDe'
 import {NativeRouter,Route,Link,Switch} from 'react-router-native'
 export default class componentName extends Component {
   render() {
+    
     return (
       <NativeRouter>
         <View>
@@ -21,7 +22,7 @@ export default class componentName extends Component {
               <Route exact path='/' component={PhanLoaiBang} />
               <Route exact path='/BienBaoCam' component={BienBaoCam} />
               <Route exact path='/Meo' component={Meo} />
-              <Route exact path='/XemDapAn' component={XemDapAn} />
+              <Route exact path='/XemDapAn/:answer' component={XemDapAn} />
               <Route exact path='/SaHinh' component={SaHinh} />
               <Route exact path='/TestTheoBoDe/:id' component={TestTheoBoDe} />
 
