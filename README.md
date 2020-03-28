@@ -15,6 +15,6 @@ In the project directory, you can run:
  ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo4.png)
  ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo5.png)
  ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo6.png)
- ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo7.png)
+ ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo8.png)
  
 <b><u>Setup</u></b><br/>
