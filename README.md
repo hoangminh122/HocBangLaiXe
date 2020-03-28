@@ -9,8 +9,8 @@ In the project directory, you can run:
 
 # Image demo
 <b><u>Features/highlights<br/>
- ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo1.png)
- ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo2.png)
+ ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo1.png)![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo2.png)
+ 
  ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo3.png)
  ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo4.png)
  ![alt text](https://raw.githubusercontent.com/hoangminh122/HocBangLaiXe/master/demo5.png)
