@@ -8,6 +8,7 @@ import BienBaoCam from './components/BienBaoCam'
 import Meo from './components/Meo'
 import SaHinh from './components/SaHinh'
 import XemDapAn from './components/XemDapAn'
+import Save from './components/save'
 import TestTheoBoDe from './components/TestTheoBoDe'
 import {NativeRouter,Route,Link,Switch} from 'react-router-native'
 export default class componentName extends Component {
@@ -20,6 +21,7 @@ export default class componentName extends Component {
               <Route exact path='/LoaiDichVu/:loaiBang' component={LoaiDichVu} />
               <Route exact path='/ThiSatHach/:number' component={ThiSatHach} />
               <Route exact path='/' component={PhanLoaiBang} />
+              <Route exact path='/d' component={Save} />
               <Route exact path='/BienBaoCam' component={BienBaoCam} />
               <Route exact path='/Meo' component={Meo} />
               <Route exact path='/XemDapAn/:answer' component={XemDapAn} />

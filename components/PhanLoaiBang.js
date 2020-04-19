@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { TouchableHighlight,Platform,View,Text,StyleSheet,Dimensions,Image, Button} from 'react-native';
+import { TouchableHighlight,Platform,View,Text,StyleSheet,Dimensions, Button} from 'react-native';
 import {Link} from 'react-router-native'
 
+
+
 var screen =Dimensions.get('window');
+let margin_left = (screen.width - screen.width/2)/7.5
 export default class componentName extends Component {
   render() {
     return (
@@ -12,19 +15,15 @@ export default class componentName extends Component {
             <Text style={styles.textThiSatHach_txtChild}>
                  Thi Sát Hạch GPLX
             </Text>
-          </View>
-          <View style={{flex:1,borderRadius:45,height:'50%',flexDirection:'column',backgroundColor:'#CCFFFF',marginRight:5,marginTop:15,borderWidth:1,justifyContent:'flex-end',}}>
-            <View style={{}} >
-              <Link to='/' ><Image style={{resizeMode:'contain',width:'100%',height:'80%',}} source={require('../image/home.png')}></Image></Link>
-            </View>
+            <Link to='/'><Text>Home</Text></Link>
           </View>
         </View>
       <View style={styles.footerView}>
       </View>
       <View style={styles.childView}>
-        <View style={styles.viewParentButton}>
-          <Link to="/LoaiDichVu/A1" style={{backgroundColor:'black'}}>
-            <View style={[styles.txtButton,{backgroundColor:'#C53CF5'}]}>
+      <View style={[styles.viewParentButton,{marginLeft:margin_left}]}>
+          <Link to="/Meo" style={{borderTopWidth:2,borderRightWidth:0.5, borderColor:'gray'}}>
+            <View style={[styles.txtButton,{margin:7,backgroundColor:'#B5B5B5',borderWidth:1,borderLeftWidth:3,borderBottomWidth:3,borderColor:'gray'}]}>
               <View style={styles.viewChildButton}>
                 <Text style={styles.txtChildButton}>
                       A1
@@ -33,51 +32,61 @@ export default class componentName extends Component {
             </View>
           </Link>
         </View>
-        <View style={styles.viewParentButton}>
-          <Link to='/TestTheoBoDe' style={[styles.txtButton,{backgroundColor:'#31C6BD'}]}>
-            <View style={styles.viewChildButton}>
-              <Text style={styles.txtChildButton}>
-                    A2
-              </Text>
+        <View style={[styles.viewParentButton,{marginLeft:margin_left*2}]}>
+          <Link to="/Meo" style={{borderTopWidth:2,borderRightWidth:0.5, borderColor:'gray'}}>
+            <View style={[styles.txtButton,{margin:7,backgroundColor:'white',borderWidth:1,borderLeftWidth:3,borderBottomWidth:3,borderColor:'gray'}]}>
+              <View style={styles.viewChildButton}>
+                <Text style={styles.txtChildButton}>
+                      A2
+                </Text>
+              </View>
             </View>
           </Link>
         </View>
-        <View style={styles.viewParentButton}>
-          <TouchableHighlight style={[styles.txtButton,{backgroundColor:'#DE3030'}]}>
-            <View style={styles.viewChildButton}>
-              <Text style={styles.txtChildButton}>
-                    A3
-              </Text>
-            </View>  
-          </TouchableHighlight>
+        <View style={[styles.viewParentButton,{marginLeft:margin_left*3}]}>
+          <Link to="/Meo" style={{borderTopWidth:2,borderRightWidth:0.5, borderColor:'gray'}}>
+            <View style={[styles.txtButton,{margin:7,backgroundColor:'#B5B5B5',borderWidth:1,borderLeftWidth:3,borderBottomWidth:3,borderColor:'gray'}]}>
+              <View style={styles.viewChildButton}>
+                <Text style={styles.txtChildButton}>
+                      A3,A4
+                </Text>
+              </View>
+            </View>
+          </Link>
         </View>
       
-        <View style={styles.viewParentButton}>
-          <TouchableHighlight style={[styles.txtButton,{backgroundColor:'#F4CD00'}]}>
-            <View style={styles.viewChildButton}>
-              <Text style={styles.txtChildButton}>
-                    B1
-              </Text>
-            </View>   
-          </TouchableHighlight>
+        <View style={[styles.viewParentButton,{marginLeft:margin_left*4}]}>
+          <Link to="/Meo" style={{borderTopWidth:2,borderRightWidth:0.5, borderColor:'gray'}}>
+            <View style={[styles.txtButton,{margin:7,backgroundColor:'white',borderWidth:1,borderLeftWidth:3,borderBottomWidth:3,borderColor:'gray'}]}>
+              <View style={styles.viewChildButton}>
+                <Text style={styles.txtChildButton}>
+                      B1
+                </Text>
+              </View>
+            </View>
+          </Link>
         </View>
-        <View style={styles.viewParentButton}>
-          <TouchableHighlight style={[styles.txtButton,{backgroundColor:'#656262'}]}>
-            <View style={styles.viewChildButton}>
-              <Text style={styles.txtChildButton}>
-                    B2
-              </Text>
-            </View>   
-          </TouchableHighlight>
+        <View style={[styles.viewParentButton,{marginLeft:margin_left*5}]}>
+          <Link to="/Meo" style={{borderTopWidth:2,borderRightWidth:0.5, borderColor:'gray'}}>
+            <View style={[styles.txtButton,{margin:7,backgroundColor:'#B5B5B5',borderWidth:1,borderLeftWidth:3,borderBottomWidth:3,borderColor:'gray'}]}>
+              <View style={styles.viewChildButton}>
+                <Text style={styles.txtChildButton}>
+                      B2
+                </Text>
+              </View>
+            </View>
+          </Link>
         </View>
-        <View style={styles.viewParentButton}>
-          <TouchableHighlight style={[styles.txtButton,{backgroundColor:'#2DA34E'}]}>
-            <View style={styles.viewChildButton}>
-              <Text style={styles.txtChildButton}>
-                    C,D,E,F
-              </Text>
-            </View>   
-          </TouchableHighlight>
+        <View style={[styles.viewParentButton,{marginLeft:margin_left*6}]}>
+          <Link to="/Meo" style={{borderTopWidth:2,borderRightWidth:0.5, borderColor:'gray'}}>
+            <View style={[styles.txtButton,{margin:7,backgroundColor:'white',borderWidth:1,borderLeftWidth:3,borderBottomWidth:3,borderColor:'gray'}]}>
+              <View style={styles.viewChildButton}>
+                <Text style={styles.txtChildButton}>
+                      C,D,E,F
+                </Text>
+              </View>
+            </View>
+          </Link>
         </View>
         
               
@@ -92,24 +101,26 @@ const styles = StyleSheet.create({
   parentView :{
       flex:1,
       flexDirection :'column',
-      marginTop:Platform ==='ios' ?34 : 0
+      marginTop:Platform ==='ios' ?34 : 0,
+      backgroundColor:'#E8E8E8'
   },
   childTitle:{
-    // alignItems:'center',
+    alignItems:'center',
+    // color:'black'
     borderTopWidth:0.5,
     borderTopColor:'gray',
     // flex:1,
     backgroundColor :'#58D3F7',
     flexDirection:'row',
-    display:'flex',
     height:screen.height*1/10,
+    // height:200,
     width:screen.width,
     
   },
   textThiSatHach:{
 
-    flex:16,
-    // flexDirection:'row',
+    flex:1,
+    flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
     // backgroundColor:'red'
@@ -140,7 +151,7 @@ const styles = StyleSheet.create({
     flex:1,
     flexDirection:'row',
     alignItems:'center',
-    justifyContent:'center',
+    justifyContent:'flex-start',
   },
   viewChildButton :{
     flex:1,
@@ -149,7 +160,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
   },
   txtChildButton :{
-    color:'white'
+    color:'black'
 
   }
 
@@ -157,6 +168,3 @@ const styles = StyleSheet.create({
   
 
 });
-
-
-
